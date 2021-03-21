@@ -18,12 +18,3 @@ services:
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: password
-  
-  vault:
-    build: 
-      context: .
-    restart: always
-    ports: 
-    - 3000:3000
-    depends_on: 
-    - mongo

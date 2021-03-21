@@ -3,7 +3,7 @@ const router = express.Router();
 
 const Password = require('../models/password')
 
-//Stores password directly onto DB
+//Stores hashed passwords directly onto DB
 router.post('/', (req,res) => {
   const addPassword = new Password(req.body)
   addPassword.save((err) => err ? res.json(err): res.json(addPassword))

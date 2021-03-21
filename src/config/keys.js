@@ -1,8 +1,8 @@
 const {
-  DB_USER = "Sanket",
-  DB_PASS = "SZ7Bsqz3t7jDt15Q",
-  DB_HOST = "manager.31rds.mongodb.net",
-  DB_NAME = "myFirstDatabase"
+  DB_USER = "root",
+  DB_PASS = "password",
+  DB_HOST = "localhost",
+  DB_NAME = "db"
 } = process.env;
 
 module.exports = {

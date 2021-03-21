@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const authorization = require('./middleware/authorization');
 
 const app = express()
 
@@ -17,8 +18,14 @@ mongoose.connect(db, {useNewUrlParser: true, useUnifiedTopology: true, useCreate
   .catch(err => console.log(err));
 
 // Use Routes
-app.use('/passwords', require('./routes/passwords'))
+app.use('/passwords', authorization(), require('./routes/passwords'))
 app.use('/users', require('./routes/users'))
+
+app.use((err, req, res, next) => {
+  res.status(500).json({
+    message: err.message
+  });
+})
 
 const port = process.env.PORT || 3000;
 
