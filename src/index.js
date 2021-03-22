@@ -19,7 +19,6 @@ mongoose.connect(db, {useNewUrlParser: true, useUnifiedTopology: true, useCreate
 
 // Use Routes
 app.use('/passwords', authorization(), require('./routes/passwords'))
-app.use('/users', require('./routes/users'))
 
 app.use((err, req, res, next) => {
   res.status(500).json({
